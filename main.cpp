@@ -232,12 +232,30 @@ int main()
 			PlayerX++;
 		}
 		system("cls");
-
+		//플레이어 X,Y좌표 받음
 		for (int Y = 0; Y < 10; Y++)
 		{
+			//플레이어의 y좌표가 벽을 넘지않도록 설정.
+			if (PlayerY >= 8)
+			{
+				PlayerY = 8;
+			}
+			else if (PlayerY <= 1)
+			{
+				PlayerY = 1;
+			}
 			for (int X = 0; X < 10; X++)
 			{
-				//플레이어 위치자리면 플레이어를 출력.
+				//플레이어의 x좌표가 벽을 넘지않도록 설정.
+				if (PlayerX >= 8)
+				{
+					PlayerX = 8;
+				}
+				else if(PlayerX <= 1)
+				{
+					PlayerX = 1;
+				}
+				//플레이어 위치좌표에 플레이어를 출력.
 				if (PlayerX == X && PlayerY == Y)
 				{
 					cout << PlayerShape;
