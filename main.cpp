@@ -22,8 +22,9 @@ int main()
 	int KnightDamage = 10;
 	int ArrowSoldierDamage = 15;
 	int MonsterHP = 300;
+	int TotalDamage = (Knight * KnightDamage) + (ArrowSoldier * ArrowSoldierDamage);
 
-	MonsterHP = (Knight * KnightDamage) + (ArrowSoldier * ArrowSoldierDamage);
+	MonsterHP = MonsterHP - TotalDamage;
 
 	cout << MonsterHP;
 
