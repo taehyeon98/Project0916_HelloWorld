@@ -200,62 +200,53 @@ int main()
 	
 	int Map[10][10] = {
 		{1,1,1,1,1,1,1,1,1,1},
+		{1,0,0,0,0,0,0,1,1,1},
 		{1,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,0,0,0,0,1},
+		{1,0,1,0,0,0,0,0,0,1},
+		{1,0,1,0,0,0,0,0,0,1},
+		{1,0,1,0,0,0,0,0,0,1},
 		{1,1,1,1,1,1,1,1,1,1}
 	};
 
 	while (bIsAlive)
 	{
 		int KeyCode = _getch();
+		int MoveX = PlayerX;
+		int MoveY = PlayerY;
 
 		if (KeyCode == 'w')
 		{
-			PlayerY--;
+			MoveY--;
 		}
 		else if (KeyCode == 's')
 		{
-			PlayerY++;
+			MoveY++;
 		}
 		else if (KeyCode == 'a')
 		{
-			PlayerX--;
+			MoveX--;
 		}
 		else if (KeyCode == 'd')
 		{
-			PlayerX++;
+			MoveX++;
+		}
+		//2차원배열?
+		//arr[몇줄의?][몇번째칸?]
+		//즉, 앞의 인덱스가 Y축, 뒤의 인덱스가 X축 이동.
+		if (Map[MoveY][MoveX] == 0)
+		{
+			PlayerX = MoveX;
+			PlayerY = MoveY;
 		}
 		system("cls");
 		//플레이어 X,Y좌표 받음
 		for (int Y = 0; Y < 10; Y++)
 		{
-			//플레이어의 y좌표가 벽을 넘지않도록 설정.
-			if (PlayerY >= 8)
-			{
-				PlayerY = 8;
-			}
-			else if (PlayerY <= 1)
-			{
-				PlayerY = 1;
-			}
 			for (int X = 0; X < 10; X++)
 			{
-				//플레이어의 x좌표가 벽을 넘지않도록 설정.
-				if (PlayerX >= 8)
-				{
-					PlayerX = 8;
-				}
-				else if(PlayerX <= 1)
-				{
-					PlayerX = 1;
-				}
-				//플레이어 위치좌표에 플레이어를 출력.
 				if (PlayerX == X && PlayerY == Y)
 				{
 					cout << PlayerShape;
